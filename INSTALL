@@ -1,0 +1,9 @@
+Building Fade
+
+See doc/readme-qt.rst for instructions on building Fade QT,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Fade.
+
+See doc/build-*.txt for instructions on building Faded,
+the intended-for-services, no-graphical-interface, reference
+implementation of Fade.
