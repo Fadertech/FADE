@@ -80,31 +80,6 @@ public:
         genesis.nBits    = bnProofOfWorkLimit.GetCompact(); 
         genesis.nNonce   = 168118;
 
-        if (false && (genesis.GetHash() != hashGenesisBlock)) {
-                uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
-                uint256 newhash = genesis.GetHash();
-                uint256 besthash;
-                memset(&besthash,0xFF,32);
-                while (newhash > hashTarget) {
-                      ++genesis.nNonce;
-                      if (genesis.nNonce == 0){
-                          printf("NONCE WRAPPED, incrementing time");
-                          ++genesis.nTime;
-                      }
-                  newhash = genesis.GetHash();
-                  if(newhash < besthash){
-                      besthash=newhash;
-                      ofstream f;
-                      f.open("1.txt");
-                      f<<"Hash = "<<newhash.ToString()<<"\n";
-                      f<<"hashMerkleRoot = "<<genesis.hashMerkleRoot.ToString()<<"\n";
-                      f<<"nTime ="<<genesis.nTime<<"\n";
-                      f<<"nNonce ="<<genesis.nNonce<<"\n";
-                      f.close();
-                  }
-                  }
-        }
-
         hashGenesisBlock = genesis.GetHash();
 
         assert(hashGenesisBlock == uint256("0x00008f8420c84801ef422b2e2042ee4b1a41e325a5a98a7bd6a1be89ea9769d0"));
@@ -158,31 +133,6 @@ public:
         // Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nBits  = 520159231; 
         genesis.nNonce = 168118;
-
-        if (false && (genesis.GetHash() != hashGenesisBlock)) {
-                uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
-                uint256 newhash = genesis.GetHash();
-                uint256 besthash;
-                memset(&besthash,0xFF,32);
-                while (newhash > hashTarget) {
-                      ++genesis.nNonce;
-                      if (genesis.nNonce == 0){
-                          printf("NONCE WRAPPED, incrementing time");
-                          ++genesis.nTime;
-                      }
-                  newhash = genesis.GetHash();
-                  if(newhash < besthash){
-                      besthash=newhash;
-                      ofstream f;
-                      f.open("2.txt");
-                      f<<"Hash = "<<newhash.ToString()<<"\n";
-                      f<<"hashMerkleRoot = "<<genesis.hashMerkleRoot.ToString()<<"\n";
-                      f<<"nTime ="<<genesis.nTime<<"\n";
-                      f<<"nNonce ="<<genesis.nNonce<<"\n";
-                      f.close();
-                  }
-                  }
-        }
 
         assert(hashGenesisBlock == uint256("0x00008f8420c84801ef422b2e2042ee4b1a41e325a5a98a7bd6a1be89ea9769d0"));
 
